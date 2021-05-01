@@ -15,12 +15,19 @@ app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-app.get("/", (res,req) => {
-	console.log("inside get function");	
+//cannot swap req and res order in callback function
+app.get("/", (req,res) => {
+	res.render('home', {homeStartingContent : homeStartingContent});
 });
 
+app.get('/about', (req, res) => {
+	res.render('about',{aboutContent : aboutContent});
+});
 
+app.get('/contact', (req, res) => {
+	 res.render('contact', {contactContent : contactContent});
+});
 //launch app
-app.listen(8080, (res, req) => {
-	console.log('')
+app.listen(8081, () => {
+	console.log('server is listening at port 8081')
 });
