@@ -4,13 +4,19 @@
 <body>
 	<%- include('../views/partials/header'); %>
 	<h1>Home</h1>
-	<div class="para-container">
-		<div class="first-para">
-			<p>
-				<%= homeStartingContent %>
-			</p>
-		</div>
-	</div>
+	
+	<small id="title"><em>Published on <%= currentDate %></em></small>
+	<p><%= homeStartingContent.substring(0.140)+"..."%></p>
+
+	<% for(let i=0; i<articleList.length; i++){ %>
+	
+	<h1><%= articleList[i]['titleName']%></h1>
+	<small id="title"><em>Published on <%= currentDate %></em></small>
+	<p class=".para"><%= articleList[i]['textDescription'].substring(0,90) +"..." %>
+		<a href="/posts/<%= articleList[i]['titleName'] %>"> Read More...</a>
+	</p>
+	
+	<% } %>
 	<%- include('../views/partials/footer'); %>
 </body>
 </html>
