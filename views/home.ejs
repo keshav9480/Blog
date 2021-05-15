@@ -13,7 +13,7 @@
 	<h1><%= articleList[i]['titleName']%></h1>
 	<small id="title"><em>Published on <%= currentDate %></em></small>
 	<p class=".para"><%= articleList[i]['textDescription'].substring(0,90) +"..." %>
-		<a href="/posts/<%= articleList[i]['titleName'] %>"> Read More...</a>
+		<a href="/posts/<%= articleList[i]['titleName'] %>"> Read More</a>
 	</p>
 	
 	<% } %>
